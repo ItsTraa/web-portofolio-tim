@@ -1,6 +1,6 @@
-/* =========================
-   RESET
-========================= */
+/* =========================================================
+   RESET & GLOBAL
+========================================================= */
 
 * {
     margin: 0;
@@ -10,18 +10,20 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
-    background-color: #0f0f0f;
+    background: #0f0f0f;
     color: #ffffff;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 
-/* =========================
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 
 .nav {
     position: fixed;
@@ -29,43 +31,104 @@ body {
     left: 50%;
     transform: translateX(-50%);
 
+    width: max-content;
+    max-width: 90%;
+
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 20px;
 
     padding: 10px 15px;
 
-    background-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
 
     border-radius: 50px;
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 
     z-index: 1000;
 }
 
-.nav a {
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.nav_logo {
     color: #ffffff;
     text-decoration: none;
 
-    padding: 10px 18px;
+    font-weight: bold;
+
+    padding: 10px 15px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAV MENU
+========================================================= */
+
+.nav_menu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.nav_menu a {
+    color: #ffffff;
+
+    text-decoration: none;
+
+    padding: 10px 15px;
 
     border-radius: 30px;
 
     font-size: 14px;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
-.nav a:hover {
-    background-color: #ffffff;
+
+.nav_menu a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* MENU AKTIF */
+
+.nav_menu a.active {
+    background: #ffffff;
     color: #000000;
 }
 
 
-/* =========================
-   GENERAL SECTION
-========================= */
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.menu_toggle {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
 
 section {
     min-height: 100vh;
@@ -74,35 +137,34 @@ section {
 
     display: flex;
     flex-direction: column;
+
     justify-content: center;
 }
 
 
-/* =========================
+/* =========================================================
    HOME
-========================= */
+========================================================= */
 
 .home {
-    min-height: 100vh;
-
     display: grid;
+
     grid-template-columns: 1fr 1fr;
 
     align-items: center;
 
     gap: 80px;
-
-    text-align: left;
 }
 
 
-/* =========================
+/* =========================================================
    HERO TEXT
-========================= */
+========================================================= */
 
 .hero_text {
     max-width: 600px;
 }
+
 
 .hero_text h1 {
     font-size: clamp(50px, 7vw, 100px);
@@ -111,6 +173,7 @@ section {
 
     margin-bottom: 25px;
 }
+
 
 .hero_text h2 {
     font-size: 20px;
@@ -124,6 +187,7 @@ section {
     margin-bottom: 20px;
 }
 
+
 .hero_text p {
     color: #888888;
 
@@ -133,9 +197,9 @@ section {
 }
 
 
-/* =========================
+/* =========================================================
    HERO BUTTON
-========================= */
+========================================================= */
 
 .hero_text a {
     display: inline-block;
@@ -144,7 +208,7 @@ section {
 
     padding: 14px 28px;
 
-    background-color: #ffffff;
+    background: #ffffff;
 
     color: #000000;
 
@@ -152,17 +216,20 @@ section {
 
     border-radius: 30px;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
+
 
 .hero_text a:hover {
     transform: translateY(-5px);
+
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
 }
 
 
-/* =========================
+/* =========================================================
    HERO IMAGE
-========================= */
+========================================================= */
 
 .hero_image {
     width: 100%;
@@ -171,6 +238,7 @@ section {
 
     justify-content: center;
 }
+
 
 .hero_image img {
     width: 100%;
@@ -185,54 +253,25 @@ section {
 
     filter: grayscale(100%);
 
-    transition: 0.5s;
+    transition: 0.5s ease;
 }
+
 
 .hero_image img:hover {
     filter: grayscale(0%);
 
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
 
-/* =========================
-   BUTTON
-========================= */
-
-.home a {
-    display: inline-block;
-
-    margin-top: 30px;
-
-    padding: 14px 28px;
-
-    background-color: #ffffff;
-    color: #000000;
-
-    text-decoration: none;
-
-    border-radius: 30px;
-
-    transition: 0.3s;
-}
-
-.home a:hover {
-    transform: translateY(-5px);
-}
-
-
-/* =========================
+/* =========================================================
    ABOUT US
-========================= */
+========================================================= */
 
 .about_us {
     gap: 150px;
 }
 
-
-/* =========================
-   TEAM MEMBER
-========================= */
 
 .team_member {
     display: grid;
@@ -245,9 +284,19 @@ section {
 }
 
 
-/* =========================
+/* =========================================================
    MEMBER INFO
-========================= */
+========================================================= */
+
+.member_info {
+    transition: 0.4s ease;
+}
+
+
+.member_info:hover {
+    transform: translateY(-5px);
+}
+
 
 .member_info h2 {
     font-size: 60px;
@@ -257,11 +306,13 @@ section {
     margin-bottom: 40px;
 }
 
+
 .member_info h3 {
     font-size: 32px;
 
     margin-bottom: 10px;
 }
+
 
 .member_info .role {
     color: #888888;
@@ -275,6 +326,7 @@ section {
     margin-bottom: 25px;
 }
 
+
 .member_info p {
     color: #aaaaaa;
 
@@ -284,9 +336,9 @@ section {
 }
 
 
-/* =========================
-   MOSAIC GALLERY
-========================= */
+/* =========================================================
+   MEMBER GALLERY
+========================================================= */
 
 .member_gallery {
     display: grid;
@@ -299,10 +351,6 @@ section {
 }
 
 
-/* =========================
-   GALLERY IMAGE
-========================= */
-
 .member_gallery img {
     width: 100%;
 
@@ -314,24 +362,14 @@ section {
 
     filter: grayscale(100%);
 
-    transition: 0.5s;
+    transition: 0.5s ease;
 }
 
-
-/* =========================
-   MOSAIC LAYOUT
-========================= */
-
-/* Foto pertama lebih besar */
 
 .member_gallery img:first-child {
     grid-row: span 2;
 }
 
-
-/* =========================
-   IMAGE HOVER
-========================= */
 
 .member_gallery img:hover {
     filter: grayscale(0%);
@@ -342,72 +380,46 @@ section {
 }
 
 
-/* =========================
-   SECOND MEMBER
-========================= */
+/* MEMBER 2 */
 
 .team_member:nth-child(2) .member_info {
     order: 2;
 }
+
 
 .team_member:nth-child(2) .member_gallery {
     order: 1;
 }
 
 
-/* =========================
-   PHOTO GALLERY
-========================= */
-
-.member_gallery {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
-}
-
-.member_gallery img {
-    width: 100%;
-    height: 250px;
-
-    object-fit: cover;
-
-    border-radius: 10px;
-
-    transition: 0.4s;
-}
-
-.member_gallery img:hover {
-    transform: scale(1.03);
-}
-
-
-/* =========================
+/* =========================================================
    SKILLS
-========================= */
+========================================================= */
 
 .skills {
     text-align: center;
+
     align-items: center;
 }
 
+
 .skills h1 {
     font-size: 60px;
+
     margin-bottom: 20px;
 }
 
+
 .skills > p {
     color: #888888;
+
     max-width: 600px;
+
     line-height: 1.7;
+
     margin-bottom: 60px;
 }
 
-
-/* =========================
-   TEAM SKILLS
-========================= */
 
 .team_skills {
     display: grid;
@@ -417,44 +429,45 @@ section {
     gap: 25px;
 
     width: 100%;
+
     max-width: 1000px;
 }
 
 
-/* =========================
-   MEMBER SKILL CARD
-========================= */
+/* =========================================================
+   SKILL CARD
+========================================================= */
 
 .member_skill {
     padding: 40px;
 
     text-align: left;
 
-    background-color: #151515;
+    background: #151515;
 
     border: 1px solid #292929;
 
     border-radius: 20px;
 
-    transition: 0.4s;
+    transition: 0.4s ease;
 }
+
 
 .member_skill:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
 
     border-color: #555555;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-
-/* =========================
-   MEMBER NAME
-========================= */
 
 .member_skill h2 {
     font-size: 28px;
 
     margin-bottom: 10px;
 }
+
 
 .member_skill p {
     color: #888888;
@@ -467,9 +480,9 @@ section {
 }
 
 
-/* =========================
+/* =========================================================
    SKILL TAG
-========================= */
+========================================================= */
 
 .skill_list {
     display: flex;
@@ -479,10 +492,11 @@ section {
     gap: 10px;
 }
 
+
 .skill_list span {
     padding: 9px 15px;
 
-    background-color: #222222;
+    background: #222222;
 
     border: 1px solid #333333;
 
@@ -492,11 +506,12 @@ section {
 
     font-size: 13px;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
+
 .skill_list span:hover {
-    background-color: #ffffff;
+    background: #ffffff;
 
     color: #000000;
 
@@ -504,31 +519,34 @@ section {
 }
 
 
-/* =========================
+/* =========================================================
    PROJECTS
-========================= */
+========================================================= */
 
 .projects {
     text-align: center;
+
     align-items: center;
 }
 
+
 .projects h1 {
     font-size: 60px;
+
     margin-bottom: 20px;
 }
 
+
 .projects > p {
     color: #888888;
+
     max-width: 600px;
+
     line-height: 1.7;
+
     margin-bottom: 60px;
 }
 
-
-/* =========================
-   PROJECT LIST
-========================= */
 
 .project_list {
     display: grid;
@@ -541,12 +559,12 @@ section {
 }
 
 
-/* =========================
+/* =========================================================
    PROJECT CARD
-========================= */
+========================================================= */
 
 .project_card {
-    background-color: #151515;
+    background: #151515;
 
     border: 1px solid #292929;
 
@@ -556,8 +574,9 @@ section {
 
     text-align: left;
 
-    transition: 0.4s;
+    transition: 0.4s ease;
 }
+
 
 .project_card:hover {
     transform: translateY(-8px);
@@ -566,11 +585,9 @@ section {
 }
 
 
-/* =========================
-   PROJECT IMAGE
-========================= */
-
 .project_card img {
+    display: block;
+
     width: 100%;
 
     height: 230px;
@@ -579,8 +596,9 @@ section {
 
     filter: grayscale(100%);
 
-    transition: 0.5s;
+    transition: 0.5s ease;
 }
+
 
 .project_card:hover img {
     filter: grayscale(0%);
@@ -589,15 +607,12 @@ section {
 }
 
 
-/* =========================
-   PROJECT CONTENT
-========================= */
-
 .project_card h2 {
     font-size: 24px;
 
     margin: 25px 25px 10px;
 }
+
 
 .project_card p {
     color: #888888;
@@ -608,9 +623,9 @@ section {
 }
 
 
-/* =========================
+/* =========================================================
    PROJECT TECHNOLOGY
-========================= */
+========================================================= */
 
 .project_tech {
     display: flex;
@@ -622,10 +637,11 @@ section {
     margin: 20px 25px;
 }
 
+
 .project_tech span {
     padding: 7px 12px;
 
-    background-color: #222222;
+    background: #222222;
 
     border: 1px solid #333333;
 
@@ -637,9 +653,9 @@ section {
 }
 
 
-/* =========================
+/* =========================================================
    PROJECT LINKS
-========================= */
+========================================================= */
 
 .project_links {
     display: flex;
@@ -648,6 +664,7 @@ section {
 
     margin: 0 25px 25px;
 }
+
 
 .project_links a {
     padding: 10px 16px;
@@ -662,40 +679,47 @@ section {
 
     font-size: 13px;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
+
 
 .project_links a:hover {
-    background-color: #ffffff;
+    background: #ffffff;
 
     color: #000000;
+
+    transform: translateY(-3px);
 }
 
 
-/* =========================
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact {
     text-align: center;
+
     align-items: center;
+
+    min-height: 70vh;
 }
+
 
 .contact_text h1 {
     font-size: 60px;
+
     margin-bottom: 20px;
 }
 
+
 .contact_text p {
     color: #888888;
+
     max-width: 600px;
+
     line-height: 1.7;
 }
 
-
-/* =========================
-   CONTACT LINKS
-========================= */
 
 .contact_links {
     display: flex;
@@ -706,6 +730,7 @@ section {
 
     margin-top: 40px;
 }
+
 
 .contact_links a {
     padding: 14px 28px;
@@ -718,11 +743,12 @@ section {
 
     text-decoration: none;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
+
 .contact_links a:hover {
-    background-color: #ffffff;
+    background: #ffffff;
 
     color: #000000;
 
@@ -730,39 +756,221 @@ section {
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* =========================================================
+   BACK TO TOP
+========================================================= */
 
-.footer {
-    padding: 30px;
+.back_to_top {
+    position: fixed;
 
-    text-align: center;
+    right: 30px;
 
-    border-top: 1px solid #222222;
+    bottom: 30px;
 
-    color: #777777;
+    width: 50px;
 
-    font-size: 14px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    border: none;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition: 0.3s ease;
+
+    z-index: 999;
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+.back_to_top.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+.back_to_top:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   LOADING SCREEN
+========================================================= */
+
+.loader {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #0f0f0f;
+
+    z-index: 9999;
+
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+}
+
+
+.loader_text {
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #ffffff;
+
+    animation: loadingPulse 1.2s infinite;
+}
+
+
+.loader.hide {
+    opacity: 0;
+
+    visibility: hidden;
+}
+
+
+@keyframes loadingPulse {
+
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* HOME SELALU TERLIHAT */
+
+.home.reveal {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
 
+    /* NAVBAR */
+
     .nav {
         width: 90%;
-        justify-content: center;
-        overflow-x: auto;
+
+        justify-content: space-between;
+
+        border-radius: 20px;
     }
 
-    .nav a {
-        white-space: nowrap;
-        padding: 8px 12px;
-        font-size: 12px;
+
+    .menu_toggle {
+        display: block;
+    }
+
+
+    .nav_menu {
+        position: absolute;
+
+        top: 65px;
+
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        padding: 15px;
+
+        background: rgba(20, 20, 20, 0.95);
+
+        border: 1px solid #292929;
+
+        border-radius: 20px;
+
+        backdrop-filter: blur(15px);
+    }
+
+
+    .nav_menu.active {
+        display: flex;
+    }
+
+
+    .nav_menu a {
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    /* SECTION */
+
+    section {
+        padding: 100px 6%;
     }
 
 
@@ -770,40 +978,68 @@ section {
 
     .home {
         grid-template-columns: 1fr;
+
         text-align: center;
+
+        gap: 40px;
     }
+
 
     .hero_text {
         margin: auto;
     }
 
-    .hero_image img {
-        height: 450px;
+
+    .hero_text h1 {
+        font-size: 55px;
     }
 
 
-    /* ABOUT US */
+    .hero_text p {
+        margin: auto;
+    }
+
+
+    .hero_image {
+        margin-top: 20px;
+    }
+
+
+    .hero_image img {
+        height: 450px;
+
+        max-width: 100%;
+    }
+
+
+    /* ABOUT */
 
     .about_us {
         gap: 100px;
     }
 
+
     .team_member {
         grid-template-columns: 1fr;
+
         gap: 40px;
     }
+
 
     .team_member:nth-child(2) .member_info {
         order: 1;
     }
 
+
     .team_member:nth-child(2) .member_gallery {
         order: 2;
     }
 
+
     .member_info h2 {
         font-size: 45px;
     }
+
 
     .member_gallery {
         grid-template-rows: 150px 150px;
@@ -816,9 +1052,11 @@ section {
         grid-template-columns: 1fr;
     }
 
+
     .member_skill {
         padding: 30px;
     }
+
 
     .skills h1 {
         font-size: 45px;
@@ -831,28 +1069,23 @@ section {
         grid-template-columns: 1fr;
     }
 
+
     .projects h1 {
         font-size: 45px;
     }
 
 
+    .project_card img {
+        height: 200px;
+    }
+
+
     /* CONTACT */
-
-    .contact_links {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .contact_links a {
-        width: 100%;
-    }
-
-
-    /* CONTACT MOBILE */
 
     .contact_text h1 {
         font-size: 45px;
     }
+
 
     .contact_links {
         flex-direction: column;
@@ -862,8 +1095,43 @@ section {
         max-width: 300px;
     }
 
+
     .contact_links a {
         width: 100%;
+
+        text-align: center;
     }
 
+
+    /* BACK TO TOP */
+
+    .back_to_top {
+        right: 20px;
+
+        bottom: 20px;
+
+        width: 45px;
+
+        height: 45px;
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    padding: 30px 8%;
+
+    text-align: center;
+
+    border-top: 1px solid #222222;
+
+    background: #0f0f0f;
+
+    color: #777777;
+
+    font-size: 14px;
 }

@@ -13,21 +13,53 @@
 
     <body>
 
+        <div class="loader" id="loader">
+
+            <div class="loader_text">
+                UTRAA × YERIKHO
+            </div>
+
+        </div>
+
         <!-- tombol pertama -->
+
         <nav class="nav">
 
-            <a href="#home">Home</a>
-            <a href="#about_us">About Us</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <!-- Logo / Nama Tim -->
+            
+            <a href="#home" class="nav_logo">
+                Team Name
+            </a>
+
+
+            <!-- Tombol Hamburger -->
+            <button class="menu_toggle" id="menu_toggle">
+                ☰
+            </button>
+
+
+            <!-- Menu -->
+            <div class="nav_menu" id="nav_menu">
+
+                <a href="#home">Home</a>
+
+                <a href="#about_us">About Us</a>
+
+                <a href="#skills">Skills</a>
+
+                <a href="#projects">Projects</a>
+
+                <a href="#contact">Contact</a>
+
+            </div>
+
         </nav>
 
         <main>
 
          <!-- pengenalan -->
 
-            <section class="home" id="home">
+            <section class="home reveal" id="home">
 
                 <div class="hero_text">
 
@@ -65,7 +97,7 @@
 
          <!-- about us -->
 
-            <section class="about_us" id="about_us">
+            <section class="about_us reveal" id="about_us">
 
                 <!-- Member 1 -->
 
@@ -136,7 +168,7 @@
 
          <!-- skills -->
 
-            <section class="skills" id="skills">
+            <section class="skills reveal" id="skills">
 
                 <h1>Our Skills</h1>
 
@@ -194,7 +226,7 @@
 
             <!-- projects -->
 
-            <section class="projects" id="projects">
+            <section class="projects reveal" id="projects">
 
                 <h1>Our Projects</h1>
 
@@ -319,7 +351,7 @@
 
             <!-- contact -->
 
-            <section class="contact" id="contact">
+            <section class="contact reveal" id="contact">
 
                 <div class="contact_text">
 
@@ -353,14 +385,22 @@
 
         </main>
 
+        <button id="backToTop" class="back_to_top">
+            ↑
+        </button>
+
+        <script src="script.js"></script>
+
+        <footer class="footer">
+
+            <p>
+                © 2026 UTRAA × YERIKHO. All rights reserved.
+            </p>
+
+        </footer>
+
     </body>
 
-    <footer class="footer">
-
-        <p>
-        © 2026 Team Name. All rights reserved.
-        </p>
-
-    </footer>
+   
 
 </html>
